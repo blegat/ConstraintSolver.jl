@@ -77,7 +77,7 @@ function get_constraint_types(
     if direct_support
         return [(F,S)]
     else
-        return MOIB.added_constraint_types(inner_bridge, F, S)
+        return MOIB.added_constraint_types(MOIB.Constraint.concrete_bridge_type(inner_bridge, F, S))
     end
 end
 

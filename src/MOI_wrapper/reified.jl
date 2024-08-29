@@ -45,7 +45,7 @@ end
 
 function JuMP.parse_constraint_head(_error::Function, ::Val{:(:=)}, lhs, rhs)
     variable, S = _reified_variable_set(_error, lhs)
-    if !JuMP.isexpr(rhs, :braces) || length(rhs.args) != 1
+    if !Meta.isexpr(rhs, :braces) || length(rhs.args) != 1
         _error("Invalid right-hand side `$(rhs)` of reified constraint. Expected constraint surrounded by `{` and `}`.")
     end
     rhs_con = rhs.args[1]
