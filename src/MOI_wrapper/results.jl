@@ -3,7 +3,7 @@ function MOI.get(model::Optimizer, ::MOI.TerminationStatus)
 end
 
 function MOI.get(model::Optimizer, ov::MOI.ObjectiveValue)
-    return model.inner.solutions[ov.result_index].incumbent
+    return float(model.inner.solutions[ov.result_index].incumbent)
 end
 
 function MOI.get(model::Optimizer, ::MOI.ObjectiveBound)
