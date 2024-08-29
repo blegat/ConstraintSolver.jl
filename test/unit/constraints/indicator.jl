@@ -72,7 +72,7 @@
     CS.values(com.search_space[constr_indices[1]]) == [1]
 end
 
-# FIXME
+# FIXME this is hitting https://github.com/jump-dev/JuMP.jl/issues/3812
 #@testset "indicator is_constraint_violated test" begin
 #    m = Model(optimizer_with_attributes(CS.Optimizer, "no_prune" => true, "logging" => []))
 #    @variable(m, b, Bin)
