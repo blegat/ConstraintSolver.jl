@@ -1,6 +1,6 @@
 @testset "IndicatorConstraint" begin
     @testset "Basic ==" begin
-        m = Model(CSJuMPTestOptimizer())
+        m = GenericModel{Int}(CSJuMPTestOptimizer())
         @variable(m, x, CS.Integers([1, 2, 4]))
         @variable(m, y, CS.Integers([3, 4]))
         @variable(m, b, Bin)
@@ -18,7 +18,7 @@
     end
 
     @testset "Basic == Active on zero" begin
-        m = Model(CSJuMPTestOptimizer())
+        m = GenericModel{Int}(CSJuMPTestOptimizer())
         @variable(m, x, CS.Integers([1, 2, 4]))
         @variable(m, y, CS.Integers([3, 4]))
         @variable(m, b, Bin)
@@ -125,7 +125,7 @@
     end
 
     @testset "Basic AllDifferent" begin
-        m = Model(CSJuMPTestOptimizer())
+        m = GenericModel{Int}(CSJuMPTestOptimizer())
         @variable(m, 0 <= x <= 1, Int)
         @variable(m, 0 <= y <= 1, Int)
         @variable(m, a, Bin)
@@ -150,7 +150,7 @@
     end
 
     @testset "Basic AllDifferent achievable" begin
-        m = Model(CSJuMPTestOptimizer())
+        m = GenericModel{Int}(CSJuMPTestOptimizer())
         @variable(m, 0 <= x <= 1, Int)
         @variable(m, 0 <= y <= 1, Int)
         @variable(m, a, Bin)
@@ -169,7 +169,7 @@
     end
 
     @testset "Basic AllDifferent negated" begin
-        m = Model(CSJuMPTestOptimizer())
+        m = GenericModel{Int}(CSJuMPTestOptimizer())
         @variable(m, 0 <= x <= 1, Int)
         @variable(m, 0 <= y <= 1, Int)
         @variable(m, a, Bin)

@@ -10,10 +10,10 @@ function JuMP._build_indicator_constraint(
     S = typeof(constraint.set)
     F = typeof(JuMP.moi_function(constraint))
     set = CS.Indicator{A,F,S}(constraint.set, 1 + length(constraint.func))
-    if constraint.func isa Vector{VariableRef}
-        vov = JuMP.VariableRef[variable]
+    if constraint.func isa Vector{typeof(variable)}
+        vov = [variable]
     else
-        vov = JuMP.AffExpr[variable]
+        vov = typeof(1variable)[variable]
     end
     append!(vov, constraint.func)
     return JuMP.VectorConstraint(vov, set)

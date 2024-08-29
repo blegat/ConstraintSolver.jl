@@ -93,7 +93,7 @@ include("simplify.jl")
 
 Return the ConstraintSolverModel for the Model or Optimizer
 """
-function get_inner_model(m::Model)
+function get_inner_model(m::JuMP.GenericModel)
     JuMP.backend(m).optimizer.model.model.inner
 end
 
