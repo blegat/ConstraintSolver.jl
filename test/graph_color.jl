@@ -762,7 +762,7 @@
         @constraint(m, georgia != florida)
 
         # test strictly less than
-        @constraint(m, max_color .< states+1)
+        @constraint(m, max_color .< states .+ 1)
 
         @objective(m, Max, max_color)
 

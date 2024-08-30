@@ -149,8 +149,10 @@ function prune_constraint!(
             end
         elseif change_type == :remove_above
             for val in change_val+1:length(T)
-                T_val_shifted = T[val] - z.lower_bound + 1
-                zSupp[T_val_shifted] > 0 && (zSupp[T_val_shifted] -= 1)
+                if z.lower_bound <= T[val] <= z.upper_bound
+                    T_val_shifted = T[val] - z.lower_bound + 1
+                    zSupp[T_val_shifted] > 0 && (zSupp[T_val_shifted] -= 1)
+                end
             end
         elseif change_type == :remove_below
             for val in 1:min(change_val-1, length(T))
